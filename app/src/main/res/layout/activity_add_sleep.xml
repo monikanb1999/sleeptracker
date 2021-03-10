@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AddSleepActivity">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Sleep"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textSize="45dp"
+            android:id="@+id/addsleep"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="label"
+            app:layout_constraintTop_toBottomOf="@+id/addsleep"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/timepicker"
+                android:text="jhsdf"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/outlinedTextField"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="label"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/addsleep"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/timepicker"-->
+<!--                android:text="jhsdf"-->
+<!--                />-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
