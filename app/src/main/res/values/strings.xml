@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SleepTracker</string>
+    <string name="startdate">startdate</string>
+    <string name="enddate">enddate</string>
+    <string name="starttime">starttime</string>
+    <string name="endtime">endtime</string>
 </resources>

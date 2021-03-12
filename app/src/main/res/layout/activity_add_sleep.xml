@@ -1,57 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="handler"
+            type="com.example.sleeptracker.Handler" />
 
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".AddSleepActivity">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Sleep"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:textSize="45dp"
-            android:id="@+id/addsleep"/>
+        android:padding="10dp"
+        android:layout_height="match_parent">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/outlinedTextField"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="label"
-            app:layout_constraintTop_toBottomOf="@+id/addsleep"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            app:layout_constraintRight_toLeftOf="@+id/outlinedTextField3"
+            app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+            android:hint="@string/startdate"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/timepicker"
-                android:text="jhsdf"
+                android:layout_margin="20dp"
+                android:id="@+id/etstartdate"
+                android:focusable="false"
+                android:hint="@string/startdate"
+                android:onClick="@{handler::onStartDateClicked}"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:id="@+id/outlinedTextField"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="label"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/addsleep"-->
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
 
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/timepicker"-->
-<!--                android:text="jhsdf"-->
-<!--                />-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toRightOf="@+id/outlinedTextField"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:hint="@string/starttime"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:id="@+id/etstarttime"
+                android:focusable="false"
+                android:hint="@string/starttime"
+                android:onClick="@{handler::onStartTimeClicked}"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextField"
+            android:hint="@string/enddate"
+            app:layout_constraintRight_toLeftOf="@+id/outlinedTextField4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:id="@+id/etenddate"
+                android:focusable="false"
+                android:hint="@string/enddate"
+                android:onClick="@{handler::onEndDateClicked}"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField4"
+            android:layout_width="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/outlinedTextField2"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextField3"
+            app:layout_constraintRight_toRightOf="parent"
+            android:hint="@string/endtime"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:id="@+id/etendtime"
+                android:focusable="false"
+                android:hint="@string/endtime"
+                android:onClick="@{handler::onEndTimeClicked}"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
