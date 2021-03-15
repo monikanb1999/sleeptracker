@@ -5,20 +5,20 @@
     >
 
     <data>
-        <variable
-            name="handler"
-            type="com.example.sleeptracker.Handler" />
+
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/nightbg"
         tools:context=".MainActivity">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Durations shows your total time slept each night.
             Most healthy adults need between 7 and 9 hours"
             android:id="@+id/content"
@@ -27,7 +27,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:id="@+id/sleeprecyclerview"
-             app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_height="wrap_content"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

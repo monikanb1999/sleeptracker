@@ -1,10 +1,14 @@
 package com.example.sleeptime.database
 
+import android.os.Build
+
 import androidx.databinding.BaseObservable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-@Entity
+
+
+@Entity(tableName = "sleep_details")
 data class SleepDetails(
         @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
@@ -14,5 +18,6 @@ data class SleepDetails(
         @ColumnInfo(name="EndTime")
         val EndDate: Long,
         @ColumnInfo(name = "TotalDuration")
-        val TotalDuration: Int,
+        val TotalDuration: String,
 ): BaseObservable()
+

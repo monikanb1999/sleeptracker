@@ -5,33 +5,46 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sleeptime.database.SleepDetails
 import com.example.sleeptracker.databinding.ActivityAddSleepBinding
 import com.example.sleeptracker.databinding.ActivityMainBinding
 import com.example.sleeptracker.databinding.SleeprecordBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     lateinit var binding: ActivityMainBinding
     private lateinit var adapter: SleepRecyclerAdapter
+
+
+    val viewmodel2: SleepMainView2Model by lazy {
+        ViewModelProvider(this).get(SleepMainView2Model::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.handler = this
+       // binding.handlerMain = this
 
-        adapter = SleepRecyclerAdapter(this)
+        adapter= SleepRecyclerAdapter(this)
         binding.sleeprecyclerview?.setHasFixedSize(true)
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         binding.sleeprecyclerview?.layoutManager = layoutManager
         binding.sleeprecyclerview?.adapter = adapter
+
+        viewmodel2.sleepdetaillist.observe(this, androidx.lifecycle.Observer {
+            Log.d("listsize", "onCreate: ${it.size}")
+            if(it.isNotEmpty()){
+                adapter.sleepdetaillist=it
+                adapter.notifyDataSetChanged()
+            }
+        })
 
     }
 
@@ -58,24 +71,31 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item);
     }
+   class SleepRecyclerAdapter(context: Context) : RecyclerView.Adapter<SleepRecyclerAdapter.SleepViewHolder>() {
 
-    class SleepRecyclerAdapter(context: Context) : RecyclerView.Adapter<SleepRecyclerAdapter.SleepViewHolder>() {
-
-        inner class SleepViewHolder(binding: SleeprecordBinding) : RecyclerView.ViewHolder(binding.root)
 
         private val inflater: LayoutInflater = LayoutInflater.from(context)
-
+        var sleepdetaillist = emptyList<SleepDetails>()
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SleepViewHolder {
             val binding: SleeprecordBinding = DataBindingUtil.inflate(inflater, R.layout.sleeprecord, parent, false)
             return SleepViewHolder((binding))
         }
 
         override fun onBindViewHolder(holder: SleepViewHolder, position: Int) {
-           //holder.binding.
+            holder.binding.tvstartdate.text= sleepdetaillist[position].StartDate.toString()
+            holder.binding.tvenddate.text= sleepdetaillist[position].EndDate.toString()
+            holder.binding.tvtotalduration.text= sleepdetaillist[position].TotalDuration.toString()
+            holder.binding.executePendingBindings()
         }
 
         override fun getItemCount(): Int {
-            TODO("Not yet implemented")
+            return sleepdetaillist.size
         }
+        inner class SleepViewHolder(val binding: SleeprecordBinding) : RecyclerView.ViewHolder(binding.root)
+
+
     }
+
+
+
 }
