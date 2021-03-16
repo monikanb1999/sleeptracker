@@ -2,6 +2,7 @@ package com.example.sleeptracker
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
@@ -131,11 +132,13 @@ class AddSleepActivity : AppCompatActivity(),Handler {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.search -> {
-                Toast.makeText(this, " search clicked", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
                 return true
             }
             R.id.about -> {
-                Toast.makeText(this, " search clicked", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, mpchartActivity::class.java)
+                startActivity(intent)
                 return true
             }
             R.id.save -> {

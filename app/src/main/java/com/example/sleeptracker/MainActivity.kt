@@ -57,11 +57,13 @@ class MainActivity : AppCompatActivity(){
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.search -> {
-                Toast.makeText(this, " search clicked", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
                 return true
             }
             R.id.about -> {
-                Toast.makeText(this, " about clicked", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, mpchartActivity::class.java)
+                startActivity(intent)
                 return true
             }
             R.id.add -> {

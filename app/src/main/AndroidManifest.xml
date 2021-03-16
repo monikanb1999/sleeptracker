@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SleepTracker">
-        <activity android:name=".AddSleepActivity"
-            android:label="Add Sleep">
-
-        </activity>
+        <activity android:name=".HelpandFeedback"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".mpchartActivity" />
+        <activity
+            android:name=".AddSleepActivity"
+            android:label="Add Sleep" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
