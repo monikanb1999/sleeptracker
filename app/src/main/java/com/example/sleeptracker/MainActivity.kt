@@ -16,6 +16,7 @@ import com.example.sleeptime.database.SleepDetails
 import com.example.sleeptracker.databinding.ActivityAddSleepBinding
 import com.example.sleeptracker.databinding.ActivityMainBinding
 import com.example.sleeptracker.databinding.SleeprecordBinding
+import java.text.SimpleDateFormat
 
 class MainActivity : AppCompatActivity(){
     lateinit var binding: ActivityMainBinding
@@ -82,9 +83,15 @@ class MainActivity : AppCompatActivity(){
         }
 
         override fun onBindViewHolder(holder: SleepViewHolder, position: Int) {
-            holder.binding.tvstartdate.text= sleepdetaillist[position].StartDate.toString()
-            holder.binding.tvenddate.text= sleepdetaillist[position].EndDate.toString()
-            holder.binding.tvtotalduration.text= sleepdetaillist[position].TotalDuration.toString()
+            val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy hh:mm:ss")
+            Log.d("startdatetime", "onBindViewHolder: ${simpleDateFormat.format(sleepdetaillist[position].StartDate)}")
+            holder.binding.tvstartdate.text= simpleDateFormat.format(sleepdetaillist[position].StartDate)
+
+            val simpleDateFormat1 = SimpleDateFormat("dd-MM-yyyy hh:mm:ss")
+            Log.d("enddatetime", "onBindViewHolder: ${simpleDateFormat1.format(sleepdetaillist[position].EndDate)}")
+            holder.binding.tvenddate.text= simpleDateFormat1.format(sleepdetaillist[position].EndDate)
+
+            holder.binding.tvtotalduration.text= sleepdetaillist[position].TotalDuration
             holder.binding.executePendingBindings()
         }
 

@@ -151,7 +151,7 @@ class AddSleepActivity : AppCompatActivity(),Handler {
 //    TextViewDate.setText(StringDate)
 
     private fun onSaveClicked() {
-//      if(!TextUtils.isEmpty(binding.etstartdate.text.toString())){
+      if(!TextUtils.isEmpty(binding.etstartdate.text.toString())){
 //          val startdate=convertLongToString(
 //              binding.etstartdate.text.toString()
 //             )
@@ -172,12 +172,13 @@ class AddSleepActivity : AppCompatActivity(),Handler {
         //val total=hours.toString()+"hrs"
         Log.d("startdate", "onSaveClicked:$minutes ")
         Log.d("startdate", "onSaveClicked: $hours")
-        val table = SleepDetails(
-            0,
-            starttime.toLong(),
-            endtime, hours.toString() + "hrs" + minutes + "mins"
-        )
-        viewModel.inserttable(table)
+          val table = SleepDetails(
+              0,
+              starttime,
+              endtime,
+              hours.toString() + "hrs" + minutes + "mins"
+          )
+          viewModel.inserttable(table)
     }
     else
     {
